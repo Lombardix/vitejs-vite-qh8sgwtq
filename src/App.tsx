@@ -302,7 +302,7 @@ export default function KettlebellTimer() {
 
   function beep(freq = 880, dur = 0.15, vol = 0.4) {
     try {
-      if (!audioCtx.current) audioCtx.current = new (window.AudioContext || window.webkitAudioContext)();
+      if (!audioCtx.current) audioCtx.current = new window.AudioContext();
       const ctx = audioCtx.current;
       const o = ctx.createOscillator(); const g = ctx.createGain();
       o.connect(g); g.connect(ctx.destination);
